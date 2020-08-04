@@ -3,6 +3,7 @@ import './index.css'
 import Button from "../UI/Button";
 import Input from "../UI/Input";
 import SearchPanel from "../UI/SearchPanel";
+import ToDoItem from "./ToDoItem";
 import classNames from "classnames";
 
 class ToDo extends React.Component {
@@ -10,46 +11,35 @@ class ToDo extends React.Component {
     super(props);
     this.state = {
       word: '',
+      search: '',
       toDoList: [],
+      filteredToDoList: [],
     }
   }
 
   render = () => {
-    const {word, toDoList} = this.state
+    const {word, search, toDoList, filteredToDoList} = this.state
     const toDoDone = this.filterToDo('toDoDone')
     const importantToDo = this.filterToDo('importantToDo')
     const needToDo = this.filterToDo()
     const listItems = toDoList.map((toDo, index) =>
-      <li className="toDo__item" data-id={index + 1} key={index}>
-        <div
-          className={classNames('toDo__text-container',
-            {'toDo__text-container_theme_grass': toDo.important},
-            {'toDo__text-container_theme_crossed-out': toDo.done},
-          )}
-          onClick={() => this.toggleParamToDoItem(index, 'done')}
-        >
-          <span className="toDo__index">{index + 1}.</span>
-          <span className="toDo__text">{toDo.word}</span>
-        </div>
-        <div className="toDO__button-container">
-          <Button
-            className="toDo__button toDo__button_type_delete"
-            onClick={() => this.deleteToDo(index)}
-            title='X'
-          >
-          </Button>
-          <Button
-            className={classNames('toDo__button', 'toDo__button_type_important', {'toDo__button_active': toDo.important})}
-            onClick={() => this.toggleParamToDoItem(index, 'important')}
-            title='!'
-          >
-          </Button>
-        </div>
-      </li>
+      <ToDoItem
+        key={index}
+        toDoData={toDo}
+        index={index}
+        toggleParamToDoItem={this.toggleParamToDoItem}
+        deleteToDo={this.deleteToDo}
+      />
     );
     return (
       <section className='toDo'>
-        <SearchPanel/>
+        <SearchPanel
+          value={search}
+          change={(e) => {
+            this.setState({search: e})
+            this.searchItems()
+          }}
+        />
         <Input
           title='Create your To Do'
           value={word}
@@ -73,6 +63,19 @@ class ToDo extends React.Component {
       </section>
     )
   }
+
+  searchItems = () => {
+    const {search, toDoList} = this.state
+    const searchString = search.toLowerCase().trim();
+    const filteredArr = toDoList.filter(el => el.word.toLowerCase().indexOf(searchString) > -1)
+    console.log(filteredArr)
+    this.setState(() => {
+      return {
+        toDoList: filteredArr,
+      }
+    })
+  }
+
 
   filterToDo = (whatFilterReturn) => {
     const {toDoList} = this.state
@@ -108,11 +111,12 @@ class ToDo extends React.Component {
   createToDo = () => {
     const {toDoList, word} = this.state
     if (word !== '') {
-      toDoList.push({word, important: false, done: false})
-      this.setState(({toDoList}) => {
+      const newToDoItem = {word, important: false, done: false}
+      const newToDoList = [...toDoList, newToDoItem]
+      this.setState(() => {
         return {
-          toDoList,
-          word: ''
+          toDoList: newToDoList,
+          word: '',
         }
       })
     }
@@ -126,7 +130,7 @@ class ToDo extends React.Component {
     // toDoList.splice(index, 1)
 
     const newArr = [
-      ...toDoList.slice(0,  index),
+      ...toDoList.slice(0, index),
       ...toDoList.slice(index + 1)];
 
     this.setState(() => {
@@ -138,10 +142,15 @@ class ToDo extends React.Component {
 
   toggleParamToDoItem = (index, param) => {
     const {toDoList} = this.state
-    toDoList[index][param] = !toDoList[index][param]
-    this.setState(({toDoList}) => {
+    const oldItem = toDoList[index]
+    const newItem = {...oldItem, [param]: !oldItem[param]}
+    const newArr = [
+      ...toDoList.slice(0, index),
+      newItem,
+      ...toDoList.slice(index + 1)];
+    this.setState(() => {
       return {
-        toDoList,
+        toDoList: newArr,
       }
     })
   }

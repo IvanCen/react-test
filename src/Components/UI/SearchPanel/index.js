@@ -8,18 +8,18 @@ class SearchPanel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      search: '',
       isActiveButton: false,
     }
   }
 
   render = () => {
-    const {search, isActiveButton} = this.state
+    const {isActiveButton} = this.state
+    const {value, change} = this.props
     const buttons = ['All', 'Active', 'Done'].map(el => {
       return (
         <Button
           key={el}
-          className={classNames('button', 'search-panel__button', {'search-panel__button_active': isActiveButton})}
+          className={classNames('search-panel__button', {'search-panel__button_active': isActiveButton})}
           title={el}
         />
       )
@@ -29,9 +29,9 @@ class SearchPanel extends React.Component {
         className='search-panel'>
         <Input
           type='text'
-          value={search}
+          value={value}
           placeholder='Search'
-          change={(e) => this.setState({search: e})}
+          change={change}
           classInputModifier={['input_size_small', 'search-panel__input']}
           classInputFieldModifier={['input__field_theme_dark']}
         />

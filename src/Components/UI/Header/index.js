@@ -1,7 +1,7 @@
 import React from "react";
 import './index.scss'
 import Button from "../Button";
-
+import {cn} from '@bem-react/classname';
 
 class Header extends React.Component {
   constructor(props) {
@@ -24,6 +24,7 @@ class Header extends React.Component {
         <Button
           title='Toggle "Hello"'
           className="header__button"
+          classesNames={[{size: 'm'}]}
           onClick={() => this.toggleHello()}
           isActive={true}
         />
