@@ -7,11 +7,11 @@ class Button extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     console.log(this.button)
   }
 
-  render() {
+  render = () => {
     const {title = 'Submit', onClick, disabled = false, className} = this.props
     return (
       <button

@@ -1,0 +1,24 @@
+.search-panel {
+  display: flex;
+  margin-bottom: 20px;
+
+  &__input {
+    margin-right: 10px;
+  }
+
+  &__button-container {
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: 1fr 1fr 1fr;
+    max-height: 30px;
+  }
+
+  &__button {
+    padding: 10px 20px;
+
+    &_active {
+      background-color: tomato;
+    }
+
+  }
+}

@@ -6,7 +6,7 @@ import ToDo from "../Components/ToDo";
 
 class Application extends React.Component {
 
-  render() {
+  render = () => {
     return (
       <div className='root'>
         <Header title='My App'/>
