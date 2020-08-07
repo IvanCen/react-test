@@ -1,6 +1,7 @@
 import React from "react";
 import './index.css';
 import Button from "../UI/Button";
+import Timer from "../UI/Timer";
 
 function Square(props) {
   return (
@@ -14,18 +15,6 @@ function Square(props) {
 }
 
 class Board extends React.Component {
-
-  handleClick(i) {
-    const squares = this.state.squares.slice();
-    if (calculateWinner(squares) || squares[i]) {
-      return;
-    }
-    squares[i] = this.state.xIsNext ? 'X' : 'O';
-    this.setState(({
-      squares: squares,
-      xIsNext: !this.state.xIsNext
-    }))
-  }
 
   renderSquare(i) {
     return <Square
@@ -66,6 +55,8 @@ class Game extends React.Component {
       }],
       xIsNext: true,
       stepNumber: 0,
+      INTERVAL: 100,
+      total: 0,
     }
   }
 
@@ -96,10 +87,22 @@ class Game extends React.Component {
     });
   }
 
+  clearTime = () => {
+    let nullTotal = 0
+    this.setState({
+      total: nullTotal
+    })
+  }
+
+  startTime = () => {
+    const {INTERVAL} = this.state
+    setInterval(() => this.increment(), 1000/INTERVAL);
+  }
+
 
   render() {
-    const history = this.state.history;
-    const current = history[this.state.stepNumber];
+    const {stepNumber, history, xIsNext, INTERVAL, total} = this.state
+    const current = history[stepNumber];
     const winner = calculateWinner(current.squares);
 
     const moves = history.map((step, move) => {
@@ -121,12 +124,17 @@ class Game extends React.Component {
     if (winner) {
       status = 'Winner: ' + winner;
     } else {
-      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+      status = 'Next player: ' + (xIsNext ? 'X' : 'O');
     }
 
     return (
       <section className="game">
         <h2 className="game__title">Game X O</h2>
+        <Timer
+          stepNumber={stepNumber}
+          INTERVAL={INTERVAL}
+          total={total}
+        />
         <div className="game__container">
           <div className="game__board">
             <Board

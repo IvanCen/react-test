@@ -11,14 +11,14 @@ class ToDo extends React.Component {
     super(props);
     this.state = {
       word: '',
-      search: '',
       toDoList: [],
-      filteredToDoList: [],
+      search: '',
+      filter: 'all',
     }
   }
 
   render = () => {
-    const {word, search, toDoList, filteredToDoList} = this.state
+    const {word, toDoList, search, filter} = this.state
     const toDoDone = this.filterToDo('toDoDone')
     const importantToDo = this.filterToDo('importantToDo')
     const needToDo = this.filterToDo()
@@ -31,14 +31,15 @@ class ToDo extends React.Component {
         deleteToDo={this.deleteToDo}
       />
     );
+    const visibleToDoItems = this.filterItems(this.searchItems(listItems, search), filter);
+
     return (
       <section className='toDo'>
         <SearchPanel
+          change={(e) => this.setState({search: e})}
+          onFilterChange={this.onFilterChange}
           value={search}
-          change={(e) => {
-            this.setState({search: e})
-            this.searchItems()
-          }}
+          filter={filter}
         />
         <Input
           title='Create your To Do'
@@ -59,23 +60,36 @@ class ToDo extends React.Component {
           <span
             className="toDo__info">{needToDo.length} more to do, {importantToDo.length} important, {toDoDone.length} done</span>
         </div>
-        <ul className="toDo__list">{listItems}</ul>
+        <ul className="toDo__list">{visibleToDoItems}</ul>
       </section>
     )
   }
 
-  searchItems = () => {
-    const {search, toDoList} = this.state
-    const searchString = search.toLowerCase().trim();
-    const filteredArr = toDoList.filter(el => el.word.toLowerCase().indexOf(searchString) > -1)
-    console.log(filteredArr)
-    this.setState(() => {
-      return {
-        toDoList: filteredArr,
-      }
-    })
+  onFilterChange = (filter) => {
+    this.setState({filter})
   }
 
+  filterItems = (toDoList, filter) => {
+    switch (filter) {
+      case 'all':
+        return toDoList;
+      case 'active':
+        return toDoList.filter((item) => !item.props.toDoData.done);
+      case 'done':
+        return toDoList.filter((item) => item.props.toDoData.done)
+      default:
+        return toDoList;
+    }
+  }
+
+  searchItems = (toDoList, search) => {
+    if (search.length === 0) {
+      return toDoList
+    } else {
+      const searchString = search.toLowerCase().trim();
+      return toDoList.filter(el => el.props.toDoData.word.toLowerCase().indexOf(searchString) > -1)
+    }
+  }
 
   filterToDo = (whatFilterReturn) => {
     const {toDoList} = this.state

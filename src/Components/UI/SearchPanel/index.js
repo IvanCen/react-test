@@ -7,20 +7,18 @@ import Button from "../Button";
 class SearchPanel extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      isActiveButton: false,
-    }
   }
 
   render = () => {
-    const {isActiveButton} = this.state
-    const {value, change} = this.props
+    const {change, value, filter, onFilterChange} = this.props
     const buttons = ['All', 'Active', 'Done'].map(el => {
+      const isActiveButton = filter === el.toLowerCase()
       return (
         <Button
           key={el}
           className={classNames('search-panel__button', {'search-panel__button_active': isActiveButton})}
           title={el}
+          onClick={() => onFilterChange(el.toLowerCase())}
         />
       )
     })
@@ -42,7 +40,8 @@ class SearchPanel extends React.Component {
     )
   }
 
-  componentDidMount = () => {
+  /*componentDidMount = () => {
+    const {filter} = this.props
     const buttonsFilter = document.querySelectorAll('.search-panel__button');
     [...buttonsFilter].forEach(el => {
       el.addEventListener('click', function () {
@@ -52,7 +51,7 @@ class SearchPanel extends React.Component {
         this.classList.add('search-panel__button_active')
       })
     })
-  }
+  }*/
 
 }
 

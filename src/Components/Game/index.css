@@ -22,7 +22,6 @@
 }
 .game__title {
   font-size: 1.5rem;
-  margin-bottom: 40px;
 }
 
 .board-row:after {
@@ -62,4 +61,4 @@
   background: crimson;
 }
 
-/*# sourceMappingURL=index.scss.map */
+/*# sourceMappingURL=index.css.map */
