@@ -130,11 +130,11 @@ class Game extends React.Component {
     return (
       <section className="game">
         <h2 className="game__title">Game X O</h2>
-        <Timer
+        {/*<Timer
           stepNumber={stepNumber}
           INTERVAL={INTERVAL}
           total={total}
-        />
+        />*/}
         <div className="game__container">
           <div className="game__board">
             <Board

@@ -14,10 +14,6 @@ class Button extends React.Component {
     return classEl({disabled})
   }
 
-  componentDidMount = () => {
-    console.log(this.button)
-  }
-
   render = () => {
     const {title = 'Submit', onClick, className} = this.props
     return (

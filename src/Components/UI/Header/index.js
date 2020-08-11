@@ -19,7 +19,8 @@ class Header extends React.Component {
     return (
       <header
         className='header'
-      >{title}
+      >
+        <h1>{title}</h1>
         {isNeed ? this.loginBox : ''}
         <Button
           title='Toggle "Hello"'

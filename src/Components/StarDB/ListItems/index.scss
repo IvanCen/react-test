@@ -1,0 +1,23 @@
+.starDB {
+  &__list-items {
+    width: 100%;
+    padding: 0;
+    background-color: #858585;
+    border-radius: 10px;
+    list-style-type: none;
+
+
+  }
+
+  &__list-item {
+    padding: 0.5rem 0;
+
+    &_indentation_side {
+      padding: 1rem;
+    }
+
+    &_border_bottom {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    }
+  }
+}

@@ -40,19 +40,6 @@ class SearchPanel extends React.Component {
     )
   }
 
-  /*componentDidMount = () => {
-    const {filter} = this.props
-    const buttonsFilter = document.querySelectorAll('.search-panel__button');
-    [...buttonsFilter].forEach(el => {
-      el.addEventListener('click', function () {
-        [...buttonsFilter].forEach(item => {
-          item.classList.remove('search-panel__button_active');
-        })
-        this.classList.add('search-panel__button_active')
-      })
-    })
-  }*/
-
 }
 
 export default SearchPanel

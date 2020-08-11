@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../Components/UI/Header";
 import Game from "../Components/Game";
 import ToDo from "../Components/ToDo";
+import StarDB from "../Components/StarDB";
 
 
 class Application extends React.Component {
@@ -13,6 +14,7 @@ class Application extends React.Component {
         <main className="main">
           <Game/>
           <ToDo/>
+          <StarDB/>
         </main>
       </div>
     )
