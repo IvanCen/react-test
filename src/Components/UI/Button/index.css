@@ -1,0 +1,9 @@
+.button {
+  border: 0;
+}
+.button_disabled {
+  background: grey;
+  opacity: 0.4;
+}
+
+/*# sourceMappingURL=index.css.map */

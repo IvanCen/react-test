@@ -1,0 +1,27 @@
+.starDB {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: dimgrey;
+  color: white;
+  padding: 20px;
+}
+@media (max-width: 340px) {
+  .starDB {
+    padding: 10px;
+  }
+}
+.starDB__container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 1024px) {
+  .starDB__container {
+    flex-direction: column;
+  }
+}
+
+/*# sourceMappingURL=index.css.map */

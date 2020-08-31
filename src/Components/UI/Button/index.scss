@@ -1,0 +1,8 @@
+.button {
+  border: 0;
+
+  &_disabled {
+    background: grey;
+    opacity: 0.4;
+  }
+}

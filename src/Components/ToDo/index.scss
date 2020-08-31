@@ -1,0 +1,76 @@
+.toDo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+
+  &__list {
+    margin-top: 0;
+    font-size: 20px;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-left: 0;
+    list-style-type: upper-roman;
+  }
+
+  &__text-container {
+
+    &_theme_grass {
+      color: green;
+    }
+
+    &_theme_crossed-out {
+      text-decoration: line-through;
+    }
+  }
+
+  &__button-container {
+
+  }
+
+  &__text {
+    margin-right: 20px;
+  }
+
+  &__index {
+    margin-right: 5px;
+  }
+
+  &__info {
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  &__button {
+    background-color: transparent;
+
+    &_type_create {
+      padding: 10px 40px;
+      font-size: 16px;
+      background-color: lightgrey;
+    }
+
+    &_active {
+      background-color: green;
+      color: white;
+    }
+
+    &_type_important {
+      padding: 5px 10px;
+      border: 1px solid green;
+    }
+
+    &_type_delete {
+      padding: 5px 10px;
+      border: 1px solid #ca4c4c;
+      color: #ca4c4c;
+      margin-right: 10px;
+    }
+  }
+}

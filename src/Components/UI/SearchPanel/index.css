@@ -1,0 +1,21 @@
+.search-panel {
+  display: flex;
+  margin-bottom: 20px;
+}
+.search-panel__input {
+  margin-right: 10px;
+}
+.search-panel__button-container {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: 1fr 1fr 1fr;
+  max-height: 30px;
+}
+.search-panel__button {
+  padding: 10px 20px;
+}
+.search-panel__button_active {
+  background-color: tomato;
+}
+
+/*# sourceMappingURL=index.css.map */
