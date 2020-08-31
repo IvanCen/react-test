@@ -4,6 +4,7 @@
   justify-content: center;
   align-items: center;
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  overflow-wrap: anywhere;
 
   &__list {
     margin-top: 0;
@@ -15,11 +16,12 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
-    padding-left: 0;
     list-style-type: upper-roman;
+    padding: 0 16px;
   }
 
   &__text-container {
+    margin-right: 16px;
 
     &_theme_grass {
       color: green;
@@ -31,11 +33,12 @@
   }
 
   &__button-container {
-
+    display: flex;
+    flex-wrap: nowrap;
   }
 
   &__text {
-    margin-right: 20px;
+    margin-right: 16px;
   }
 
   &__index {

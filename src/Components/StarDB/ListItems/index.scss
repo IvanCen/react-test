@@ -6,7 +6,9 @@
     border-radius: 10px;
     list-style-type: none;
 
-
+    @media (min-width: 1024px) {
+      margin: 0 16px 0 0;
+    }
   }
 
   &__list-item {

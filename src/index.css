@@ -6,7 +6,6 @@ body {
     font: 16px "Century Gothic", Futura, sans-serif;
     margin: 0;
     padding: 0;
-    max-width: 1000px;
 }
 
 ol, ul {
@@ -18,8 +17,11 @@ ol, ul {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
 }
 
 .main {
     width: 100%;
+    overflow: hidden;
+
 }
