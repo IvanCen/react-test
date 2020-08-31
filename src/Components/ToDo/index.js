@@ -4,7 +4,6 @@ import Button from "../UI/Button";
 import Input from "../UI/Input";
 import SearchPanel from "../UI/SearchPanel";
 import ToDoItem from "./ToDoItem";
-import classNames from "classnames";
 
 class ToDo extends React.Component {
   constructor(props) {
