@@ -1,0 +1,42 @@
+
+
+.message {
+  border-bottom: 1px slategray solid;
+  margin-bottom: 20px;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__header {
+    display: flex;
+    margin-bottom: 20px;
+  }
+
+  &__title {
+    margin: 0;
+    word-wrap: break-word;
+
+    @media (max-width: 400px) {
+      font-size: 18px;
+    }
+  }
+
+  &__name {
+    margin-bottom: 5px;
+  }
+
+  &__date {
+  }
+
+  &__img {
+    margin-right: 20px;
+  }
+
+}

@@ -19,6 +19,9 @@
   &__button {
     padding: 10px 20px;
 
+    @media (max-width: 340px) {
+      padding: 10px;
+    }
     &_active {
       background-color: tomato;
     }

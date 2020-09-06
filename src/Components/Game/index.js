@@ -96,7 +96,7 @@ class Game extends React.Component {
 
   startTime = () => {
     const {INTERVAL} = this.state
-    setInterval(() => this.increment(), 1000/INTERVAL);
+    setInterval(() => this.increment(), 1000 / INTERVAL);
   }
 
 
@@ -105,20 +105,6 @@ class Game extends React.Component {
     const current = history[stepNumber];
     const winner = calculateWinner(current.squares);
 
-    const moves = history.map((step, move) => {
-      const desc = move ?
-        'Go to move #' + move :
-        'Go to game start';
-      return (
-        <li key={move}>
-          <Button
-            className='game__button'
-            onClick={() => this.jumpTo(move)}
-            title={desc}
-          />
-        </li>
-      );
-    });
 
     let status;
     if (winner) {
@@ -130,11 +116,6 @@ class Game extends React.Component {
     return (
       <section className="game">
         <h2 className="game__title">Game X O</h2>
-        {/*<Timer
-          stepNumber={stepNumber}
-          INTERVAL={INTERVAL}
-          total={total}
-        />*/}
         <div className="game__container">
           <div className="game__board">
             <Board
@@ -143,8 +124,16 @@ class Game extends React.Component {
             />
           </div>
           <div className="game__info">
-            <div>{status}</div>
-            <ol>{moves}</ol>
+            <div className="game__info-status">{status}</div>
+            <ol>
+              <li>
+                <Button
+                  className='game__button'
+                  onClick={() => this.jumpTo(0)}
+                  title={'Go to game start'}
+                />
+              </li>
+            </ol>
           </div>
         </div>
       </section>

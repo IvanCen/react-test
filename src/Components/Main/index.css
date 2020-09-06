@@ -1,0 +1,16 @@
+.main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #282525;
+  color: white;
+  padding: 20px;
+}
+.main__title {
+  margin: 0 0 10px;
+}
+.main__text {
+  margin: 0 0 10px;
+}
+
+/*# sourceMappingURL=index.css.map */
