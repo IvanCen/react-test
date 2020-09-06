@@ -1,0 +1,24 @@
+.message__container {
+  display: flex;
+  flex-direction: column;
+}
+.message__body {
+  padding-left: 40px;
+  display: flex;
+  flex-direction: column;
+}
+.message__header {
+  display: flex;
+  margin-bottom: 20px;
+}
+.message__title {
+  margin: 0;
+}
+.message__name {
+  margin-bottom: 5px;
+}
+.message__img {
+  margin-right: 20px;
+}
+
+/*# sourceMappingURL=index.css.map */

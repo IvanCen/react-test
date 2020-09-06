@@ -1,0 +1,36 @@
+
+
+.message {
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__body {
+    padding-left: 40px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__header {
+    display: flex;
+    margin-bottom: 20px;
+  }
+
+  &__title {
+    margin: 0;
+  }
+
+  &__name {
+    margin-bottom: 5px;
+  }
+
+  &__date {
+  }
+
+  &__img {
+    margin-right: 20px;
+  }
+
+}

@@ -1,12 +1,13 @@
 import React from "react";
 import './index.css'
+import icon from './loader.svg'
 
 class Loader extends React.Component {
 
   render = () => {
     return (
     <img
-      src={process.env.PUBLIC_URL + '/loader.svg'}
+      src={icon}
       className='loader'
       alt='loader'
     />

@@ -1,0 +1,22 @@
+.error {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 16px;
+}
+.error__text {
+  margin-bottom: 10px;
+}
+.error__text_theme_blood {
+  color: #ff5700;
+}
+.error__text_theme_gold {
+  color: goldenrod;
+}
+.error__text_size_big {
+  font-size: 20px;
+}
+.error_hide {
+  display: none;
+}
+
+/*# sourceMappingURL=index.css.map */

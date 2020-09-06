@@ -17,6 +17,11 @@
 .search-panel__button {
   padding: 10px 20px;
 }
+@media (max-width: 340px) {
+  .search-panel__button {
+    padding: 10px;
+  }
+}
 .search-panel__button_active {
   background-color: tomato;
 }

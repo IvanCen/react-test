@@ -1,19 +1,26 @@
 .game {
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  margin: 20px auto 50px;
-  padding: 0 0 50px;
+  padding: 20px 16px 50px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
 
   &__info {
     margin-left: 20px;
 
     @media (max-width: 440px) {
-      margin-left: 20px;
+      margin-left: 5px;
     }
+
+    & > ol {
+      list-style-type: none;
+    }
+  }
+
+  &__info-status {
+    margin-left: 30px;
   }
 
   &__board {
@@ -40,6 +47,7 @@
 
   &__title {
     font-size: 1.5rem;
+    margin: 0 0 20px;
   }
 }
 
