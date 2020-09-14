@@ -6,19 +6,19 @@ import Error from "../../UI/Error";
 
 
 class ItemPlanet extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      planet: {},
-      loading: true,
-      error: false,
-    }
-    this.updateData()
-    setInterval(() => this.updateData(), 10000)
-    this.api.getStarships().then(res => console.log(res))
+  api = new Api();
+
+  state = {
+    planet: {},
+    loading: true,
+    error: false,
   }
 
-  api = new Api();
+  componentDidMount = () => {
+    this.updateData()
+    this.interval = setInterval(() => this.updateData(), 10000)
+    this.api.getStarships().then(res => console.log(res))
+  }
 
   onError = (err) => {
     this.setState({
@@ -42,7 +42,7 @@ class ItemPlanet extends React.Component {
       .catch(this.onError)
   }
 
-  render() {
+  render = () => {
     const {
       planet: {
         id, name, population,

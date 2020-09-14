@@ -5,11 +5,13 @@
   background-color: dimgrey;
   color: white;
   padding: 0 16px;
+  min-height: 100vh;
   height: 100%;
 }
-@media (max-width: 460px) {
+@media (max-width: 1024px) {
   .starDB {
-    height: auto;
+    min-height: 100vh;
+    height: max-content;
   }
 }
 @media (max-width: 340px) {

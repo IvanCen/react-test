@@ -125,15 +125,11 @@ class Game extends React.Component {
           </div>
           <div className="game__info">
             <div className="game__info-status">{status}</div>
-            <ol>
-              <li>
-                <Button
-                  className='game__button'
-                  onClick={() => this.jumpTo(0)}
-                  title={'Go to game start'}
-                />
-              </li>
-            </ol>
+            <Button
+              className='game__button'
+              onClick={() => this.jumpTo(0)}
+              title={'Go to game start'}
+            />
           </div>
         </div>
       </section>

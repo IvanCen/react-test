@@ -11,7 +11,7 @@ class LinkItem extends React.Component {
   render = () => {
     const {title, classNameLink = '', path} = this.props
     return (
-      <li><Link className={classNames('link', [...classNameLink])} to={path}>{title}</Link></li>
+      <li className={classNames('link', [...classNameLink])}><Link to={path}>{title}</Link></li>
     )
   }
 

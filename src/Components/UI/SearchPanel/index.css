@@ -15,7 +15,7 @@
   max-height: 30px;
 }
 .search-panel__button {
-  padding: 10px 20px;
+  padding: 5px 10px;
 }
 @media (max-width: 340px) {
   .search-panel__button {
@@ -23,7 +23,7 @@
   }
 }
 .search-panel__button_active {
-  background-color: tomato;
+  background-color: #4cb3e1;
 }
 
 /*# sourceMappingURL=index.css.map */
