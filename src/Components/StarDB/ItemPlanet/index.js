@@ -2,20 +2,30 @@ import React from "react";
 import './index.css'
 import Api from "../Api";
 import Loader from "../../UI/Loader";
+import Error from "../../UI/Error";
+
 
 class ItemPlanet extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      planet: {},
-      loading: true,
-    }
+  api = new Api();
+
+  state = {
+    planet: {},
+    loading: true,
+    error: false,
+  }
+
+  componentDidMount = () => {
     this.updateData()
-    setInterval(() => this.updateData(), 10000)
+    this.interval = setInterval(() => this.updateData(), 10000)
     this.api.getStarships().then(res => console.log(res))
   }
 
-  api = new Api();
+  onError = (err) => {
+    this.setState({
+      error: true,
+      loading: false,
+    })
+  }
 
   onPlanetLoaded = (planet) => {
     this.setState({
@@ -29,19 +39,21 @@ class ItemPlanet extends React.Component {
     this.api
       .getPlanets(id)
       .then(this.onPlanetLoaded)
-      .catch(err => console.log(err))
+      .catch(this.onError)
   }
 
-  render() {
+  render = () => {
     const {
       planet: {
         id, name, population,
         rotationPeriod, diameter
-      }, loading
+      }, loading, error
     } = this.state;
 
-    if (loading) {
+    if (loading && !error) {
       return <Loader/>
+    } else if (error) {
+      return <Error/>
     } else {
       return (
         <div className='starDB__item'>

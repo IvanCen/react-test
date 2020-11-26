@@ -9,19 +9,27 @@ class StarDB extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      selectedItemId: null,
     }
   }
 
-  render = () => {
+  onItemSelected = (id) => {
+    this.setState({
+      selectedItemId: id,
+    })
+  }
 
+  render = () => {
+    const {selectedItemId} = this.state;
     return (
       <section className='starDB'>
         <Header/>
         <ItemPlanet/>
         <div className='starDB__container'>
-          <ListItems/>
-          <ItemInfo/>
+          <ListItems
+            onItemSelected={this.onItemSelected}
+          />
+          <ItemInfo selectedItemId={selectedItemId}/>
         </div>
       </section>
     )

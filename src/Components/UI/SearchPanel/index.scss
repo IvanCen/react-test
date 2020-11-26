@@ -1,6 +1,9 @@
 .search-panel {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   margin-bottom: 20px;
+  padding: 0 16px;
 
   &__input {
     margin-right: 10px;
@@ -14,10 +17,13 @@
   }
 
   &__button {
-    padding: 10px 20px;
+    padding: 5px 10px;
 
+    @media (max-width: 340px) {
+      padding: 10px;
+    }
     &_active {
-      background-color: tomato;
+      background-color: #4cb3e1;
     }
 
   }

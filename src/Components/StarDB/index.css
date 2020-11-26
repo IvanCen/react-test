@@ -1,11 +1,18 @@
 .starDB {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   background-color: dimgrey;
   color: white;
-  padding: 20px;
+  padding: 0 16px;
+  min-height: 100vh;
+  height: 100%;
+}
+@media (max-width: 1024px) {
+  .starDB {
+    min-height: 100vh;
+    height: max-content;
+  }
 }
 @media (max-width: 340px) {
   .starDB {
@@ -16,12 +23,14 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 @media (max-width: 1024px) {
   .starDB__container {
     flex-direction: column;
   }
+}
+.starDB__title {
+  margin: 0;
 }
 
 /*# sourceMappingURL=index.css.map */

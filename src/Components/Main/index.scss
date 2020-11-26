@@ -1,0 +1,17 @@
+.main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #282525;
+  color: white;
+  padding: 20px;
+
+  &__title {
+    margin: 0 0 10px;
+  }
+
+  &__text {
+    margin: 0 0 10px;
+  }
+}
+

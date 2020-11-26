@@ -1,0 +1,33 @@
+.message {
+  border-bottom: 1px slategray solid;
+  margin-bottom: 20px;
+}
+.message__container {
+  display: flex;
+  flex-direction: column;
+}
+.message__body {
+  display: flex;
+  flex-direction: column;
+}
+.message__header {
+  display: flex;
+  margin-bottom: 20px;
+}
+.message__title {
+  margin: 0;
+  word-wrap: break-word;
+}
+@media (max-width: 400px) {
+  .message__title {
+    font-size: 18px;
+  }
+}
+.message__name {
+  margin-bottom: 5px;
+}
+.message__img {
+  margin-right: 20px;
+}
+
+/*# sourceMappingURL=index.css.map */
