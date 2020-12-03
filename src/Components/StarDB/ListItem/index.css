@@ -1,0 +1,16 @@
+.starDB__list-item {
+  padding: 0.5rem 0;
+}
+.starDB__list-item_type_single:hover {
+  opacity: 0.7;
+  background-color: #000000;
+  cursor: pointer;
+}
+.starDB__list-item_indentation_side {
+  padding: 1rem;
+}
+.starDB__list-item_border_bottom {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/*# sourceMappingURL=index.css.map */

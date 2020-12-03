@@ -10,22 +10,4 @@
       margin: 0 16px 0 0;
     }
   }
-
-  &__list-item {
-    padding: 0.5rem 0;
-
-    &_type_single:hover {
-      opacity: 0.7;
-      background-color: #000000;
-      cursor: pointer;
-    }
-
-    &_indentation_side {
-      padding: 1rem;
-    }
-
-    &_border_bottom {
-      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    }
-  }
 }

@@ -13,7 +13,7 @@ class ItemInfo extends React.Component {
   }
 
   updateItem = () => {
-    const {selectedItemId} = this.props;
+    const {selectedItemId, getData} = this.props;
 
     if (!selectedItemId) {
       return
@@ -21,7 +21,7 @@ class ItemInfo extends React.Component {
     this.setState({
       loading: true,
     })
-    this.api.getPeople(selectedItemId)
+    getData(selectedItemId)
       .then(this.onItemLoaded)
       .catch(this.onError)
   }
@@ -46,41 +46,38 @@ class ItemInfo extends React.Component {
 
   componentDidUpdate = (prevProps) => {
     const {selectedItemId} = this.props
-    if(selectedItemId !== prevProps.selectedItemId){
+    if (selectedItemId !== prevProps.selectedItemId) {
       this.updateItem()
     }
   }
 
   render = () => {
     const {item, loading, error} = this.state;
+    const {imageList} = this.props;
     if (!item) {
-      return <span>Select a person from list</span>
+      return <span>Select from list</span>
     } else if (loading && !error) {
       return <Loader/>
     } else if (error) {
       return <Error/>
-    }
-    else {
+    } else {
+      const listInfos = Object.entries(item).map(([key, value]) => {
+        if (value && key !== 'url') {
+          return (<li key={key} className="starDB__list-item starDB__list-item_border_bottom">
+            <span className="starDB__item-info">{key[0].toUpperCase() + key.slice(1)}:</span>
+            <span>{value}</span>
+          </li>)
+        }
+      })
       return (
         <div className='starDB__item'>
           <img className="starDB__item-image"
-               src={`https://starwars-visualguide.com/assets/img/characters/${item.id}.jpg`}
+               src={`https://starwars-visualguide.com/assets/img/${imageList}/${item.id}.jpg`}
                alt="planet"/>
           <div className='starDB__item-content-container'>
             <h3 className='starDB__item-title'>{item.name}</h3>
             <ul className="starDB__list">
-              <li className="starDB__list-item starDB__list-item_border_bottom">
-                <span className="starDB__item-info">Gender:</span>
-                <span>{item.gender}</span>
-              </li>
-              <li className="starDB__list-item starDB__list-item_border_bottom">
-                <span className="starDB__item-info">EyeColor:</span>
-                <span>{item.eyeColor || 'undefined'}</span>
-              </li>
-              <li className="starDB__list-item starDB__list-item_border_bottom">
-                <span className="starDB__item-info">BirthYear:</span>
-                <span>{item.birthYear || 'undefined'}</span>
-              </li>
+              {listInfos}
             </ul>
           </div>
         </div>

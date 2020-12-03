@@ -1,6 +1,7 @@
 import React from "react";
 import './index.css'
 import Button from "../UI/Button";
+import { Button as ButtonBem } from '@yandex/ui/Button/desktop/bundle'
 import Input from "../UI/Input";
 import SearchPanel from "../UI/SearchPanel";
 import ToDoItem from "./ToDoItem";
@@ -54,6 +55,9 @@ class ToDo extends React.Component {
           }}
           title='Create'
         />
+        <ButtonBem theme='clear' size="l">
+          Create
+        </ButtonBem>
         <div className='toDo__info-panel'>
           <h2 className="toDo__title">To Do List</h2>
           <span
