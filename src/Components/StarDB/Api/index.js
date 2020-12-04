@@ -1,8 +1,13 @@
 import React from "react";
 
 class Api extends React.Component {
+  constructor(props) {
+    super(props);
 
-  _apiBase = 'https://swapi.dev/api'
+    this._apiBase = 'https://swapi.dev/api'
+  }
+
+
 
   getResource = async (url) => {
     return await fetch(`${this._apiBase}${url}`)

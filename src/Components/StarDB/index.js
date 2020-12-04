@@ -4,7 +4,6 @@ import Header from "./Header";
 import ItemPlanet from "./ItemPlanet"
 import {PeopleSectionList, PlanetsSectionList} from "./SW-Components";
 
-
 function StarDB() {
   return (
     <section className='starDB'>

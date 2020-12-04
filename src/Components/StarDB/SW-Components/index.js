@@ -21,6 +21,7 @@ const PlanetsSectionList = () => {
     </Container>)
 }
 
+
 const PeopleSectionList = () => {
   const [selectedItem, setSelectedItem] = useState(null)
 

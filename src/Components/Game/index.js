@@ -1,7 +1,6 @@
 import React from "react";
 import './index.css';
 import Button from "../UI/Button";
-import Timer from "../UI/Timer";
 
 function Square(props) {
   return (
@@ -101,7 +100,7 @@ class Game extends React.Component {
 
 
   render() {
-    const {stepNumber, history, xIsNext, INTERVAL, total} = this.state
+    const {stepNumber, history, xIsNext} = this.state
     const current = history[stepNumber];
     const winner = calculateWinner(current.squares);
 

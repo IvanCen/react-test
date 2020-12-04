@@ -4,9 +4,6 @@ import classNames from 'classnames'
 import {cn} from '@bem-react/classname';
 
 class Button extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   createClass = () => {
     const {disabled = false} = this.props

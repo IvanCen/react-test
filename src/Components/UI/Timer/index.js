@@ -1,7 +1,5 @@
 import React from "react";
 import './index.css'
-import classNames from 'classnames'
-import {cn} from '@bem-react/classname';
 
 class Timer extends React.Component {
   constructor(props) {

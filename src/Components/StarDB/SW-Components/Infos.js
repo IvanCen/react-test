@@ -1,5 +1,4 @@
 import React from "react";
-import ListItems from "../ListItems";
 import Api from "../Api";
 import ItemInfo from "../ItemInfo";
 
@@ -11,14 +10,17 @@ const InfosPlanet = ({selectedItemId}) => {
     imageList='planets'
     getData={(id) => api.getPlanets(id)}
   />)
+
 }
 
 const InfosPeople = ({selectedItemId}) => {
-  return (<ListItems
-    onItemSelected={selectedItemId}
-    getData={() => api.getPeople()}
-    renderItem={({name, gender}) => `${name || ''} (${gender || '?'})`}
-  />)
+  return (
+    <ItemInfo
+      selectedItemId={selectedItemId}
+      imageList='characters'
+      getData={(id) => api.getPeople(id)}
+    />
+  )
 }
 
 export {InfosPlanet, InfosPeople}

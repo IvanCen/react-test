@@ -5,9 +5,6 @@ import classNames from 'classnames'
 import Button from "../Button";
 
 class SearchPanel extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   render = () => {
     const {change, value, filter, onFilterChange} = this.props

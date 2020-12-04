@@ -83,9 +83,7 @@ class ItemInfo extends React.Component {
         </div>
       )
     }
-
   }
-
 }
 
 export default ItemInfo

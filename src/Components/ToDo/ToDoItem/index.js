@@ -4,9 +4,6 @@ import Button from "../../UI/Button";
 import classNames from "classnames";
 
 class ToDoItem extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   render = () => {
     const {toDoData, index, toggleParamToDoItem, deleteToDo} = this.props

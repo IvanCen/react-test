@@ -2,35 +2,31 @@ import React from "react";
 import './index.scss'
 import classNames from 'classnames'
 
-class Input extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
-  render = () => {
-    const {type = 'text', value = '', placeholder = '', title, classInputModifier = '', classInputFieldModifier = ''} = this.props
-    return (
-      <div
-        className={classNames('input', [...classInputModifier])}
-      >
-        {title && <label className="input__label">{title}</label>}
-        <input
-          className={classNames('input__field', [...classInputFieldModifier])}
-          type={type}
-          value={value}
-          placeholder={placeholder}
-          onChange={(e) => this.valueChanged(e)}
-        />
-      </div>
-    )
-  }
+function Input(props) {
+  const {type = 'text', value = '', placeholder = '', title, classInputModifier = '', classInputFieldModifier = '', change} = props
 
-  valueChanged(e) {
-    const {change} = this.props
+  const valueChanged = (e) => {
     const value = e.target.value
-    console.log({value})
     change && change(value)
   }
+
+  return (
+    <div
+      className={classNames('input', [...classInputModifier])}
+    >
+      {title && <label className="input__label">{title}</label>}
+      <input
+        className={classNames('input__field', [...classInputFieldModifier])}
+        type={type}
+        value={value}
+        placeholder={placeholder}
+        onChange={(e) => valueChanged(e)}
+      />
+    </div>
+  )
+
+
 }
 
 export default Input

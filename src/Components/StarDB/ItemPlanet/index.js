@@ -3,7 +3,7 @@ import './index.css'
 import Api from "../Api";
 import Loader from "../../UI/Loader";
 import Error from "../../UI/Error";
-
+import PropTypes from "prop-types"
 
 class ItemPlanet extends React.Component {
   api = new Api();
@@ -14,9 +14,18 @@ class ItemPlanet extends React.Component {
     error: false,
   }
 
+  static defaultProps = {
+    updateInterval: 10000
+  }
+
+  static propTypes = {
+    updateInterval: PropTypes.number
+  }
+
   componentDidMount = () => {
+    const {updateInterval} = this.props
     this.updateData()
-    this.interval = setInterval(() => this.updateData(), 10000)
+    this.interval = setInterval(() => this.updateData(), updateInterval)
     this.api.getStarships().then(res => console.log(res))
   }
 

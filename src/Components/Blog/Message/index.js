@@ -3,9 +3,7 @@ import './index.css'
 import img from './img.svg'
 
 class Message extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+
 
   date = new Date()
   dateNow = `${this.date.getDate()}/${this.date.getMonth() + 1}/${this.date.getFullYear()}`

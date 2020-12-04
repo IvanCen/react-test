@@ -1,11 +1,9 @@
 import React from "react";
 import './index.css'
-import Api from "../Api";
 import Loader from "../../UI/Loader";
 import ListItem from "../ListItem";
 
 class ListItems extends React.Component {
-  api = new Api();
   state = {
     itemsList: null,
     loading: true,

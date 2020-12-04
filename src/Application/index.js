@@ -5,7 +5,7 @@ import ToDo from "../Components/ToDo";
 import StarDB from "../Components/StarDB";
 import Blog from "../Components/Blog";
 import Main from "../Components/Main";
-import {BrowserRouter as Router, Route, Link, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 
 class Application extends React.Component {
