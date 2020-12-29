@@ -1,22 +1,25 @@
-import React from "react";
-import {Redirect} from "react-router-dom";
-
-import getState from '../../state'
-
-const state = getState()
-
-const reducer = (state = 0, action) => {
-  switch (action.type) {
-    case 'INC':
-      return state.btnNum += 1
-    default:
-      return state
-  }
-}
-
-let states = reducer(state, {type: 'INC'})
+import React, {useState} from "react";
+import {bindActionCreators} from 'redux'
+import {store} from "../../store";
+import * as actions from '../../store/actions'
 
 export default function SecretPage({isLogin = false}) {
+  const {dispatch} = store
+  const [num, setNum] = useState(store.getState())
+  store.subscribe(() => setNum(store.getState))
+
+  const randomNumber = Math.floor(Math.random() * 10)
+
+  const {inc, dec, rnd} = bindActionCreators(actions, dispatch)
+
   //if (!isLogin) return <Redirect to='/login'/>
-  return (<button>+{states}</button>)
+
+  return (
+    <div>
+      <h2>{num}</h2>
+      <button onClick={inc}>+</button>
+      <button onClick={dec}>-</button>
+      <button onClick={() => rnd(randomNumber)}>random</button>
+    </div>
+  )
 }

@@ -143,7 +143,7 @@ class ToDo extends React.Component {
   deleteToDo = (index) => {
     const {toDoList} = this.state
 
-    // нельзя изменять state напрямую, нужно через копии
+    // нельзя изменять store напрямую, нужно через копии
     // toDoList.splice(index, 1)
 
     const newArr = [
