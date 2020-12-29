@@ -2,9 +2,9 @@
   &__list-items {
     width: 100%;
     padding: 0;
-    background-color: #858585;
     border-radius: 10px;
     list-style-type: none;
+    box-shadow: 0 0 0 0.7px;
 
     @media (min-width: 1024px) {
       margin: 0 16px 0 0;

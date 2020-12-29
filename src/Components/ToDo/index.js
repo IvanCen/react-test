@@ -1,7 +1,8 @@
 import React from "react";
+import {BrowserRouter as Route, Switch, Link} from "react-router-dom";
 import './index.css'
 import Button from "../UI/Button";
-import { Button as ButtonBem } from '@yandex/ui/Button/desktop/bundle'
+import {Button as ButtonBem} from '@yandex/ui/Button/desktop/bundle'
 import Input from "../UI/Input";
 import SearchPanel from "../UI/SearchPanel";
 import ToDoItem from "./ToDoItem";
@@ -22,6 +23,7 @@ class ToDo extends React.Component {
     const toDoDone = this.filterToDo('toDoDone')
     const importantToDo = this.filterToDo('importantToDo')
     const needToDo = this.filterToDo()
+    console.log(this.props.match.path)
     const listItems = toDoList.map((toDo, index) =>
       <ToDoItem
         key={index}
@@ -32,7 +34,6 @@ class ToDo extends React.Component {
       />
     );
     const visibleToDoItems = this.filterItems(this.searchItems(listItems, search), filter);
-
     return (
       <section className='toDo'>
         <SearchPanel
@@ -63,7 +64,6 @@ class ToDo extends React.Component {
           <span
             className="toDo__info">{needToDo.length} more to do, {importantToDo.length} important, {toDoDone.length} done</span>
         </div>
-        <ul className="toDo__list">{visibleToDoItems}</ul>
       </section>
     )
   }

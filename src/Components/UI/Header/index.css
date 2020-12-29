@@ -55,5 +55,13 @@
 .header__link > a {
   color: black;
 }
+.header__button {
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: lightgrey;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+  outline: none;
+}
 
-/*# sourceMappingURL=index.scss.map */
+/*# sourceMappingURL=index.css.map */

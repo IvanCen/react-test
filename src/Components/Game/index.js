@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import './index.css';
 import Button from "../UI/Button";
 
@@ -104,13 +104,13 @@ class Game extends React.Component {
     const current = history[stepNumber];
     const winner = calculateWinner(current.squares);
 
-
     let status;
     if (winner) {
       status = 'Winner: ' + winner;
     } else {
       status = 'Next player: ' + (xIsNext ? 'X' : 'O');
     }
+
 
     return (
       <section className="game">
