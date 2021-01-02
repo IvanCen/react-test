@@ -1,25 +1,24 @@
-import React, {useState} from "react";
-import {bindActionCreators} from 'redux'
-import {store} from "../../store";
+import React from "react";
 import * as actions from '../../store/actions'
+import {connect} from 'react-redux'
 
-export default function SecretPage({isLogin = false}) {
-  const {dispatch} = store
-  const [num, setNum] = useState(store.getState())
-  store.subscribe(() => setNum(store.getState))
-
-  const randomNumber = Math.floor(Math.random() * 10)
-
-  const {inc, dec, rnd} = bindActionCreators(actions, dispatch)
+function SecretPage({num, inc, dec, rnd, isLogin = false}) {
 
   //if (!isLogin) return <Redirect to='/login'/>
-
   return (
     <div>
       <h2>{num}</h2>
       <button onClick={inc}>+</button>
       <button onClick={dec}>-</button>
-      <button onClick={() => rnd(randomNumber)}>random</button>
+      <button onClick={rnd}>random</button>
     </div>
   )
 }
+
+const mapStateToProps = (state) => {
+  return {
+    num: state
+  }
+}
+
+export default connect(mapStateToProps, actions)(SecretPage)

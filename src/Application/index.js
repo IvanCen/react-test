@@ -6,10 +6,12 @@ import StarDB from "../Components/StarDB";
 import Blog from "../Components/Blog";
 import Main from "../Components/Main";
 import {BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
+import {Provider} from 'react-redux'
 import classNames from 'classnames';
 import Routes from "../Components/Routes";
 import Login from "../Components/Login";
 import SecretPage from "../Components/SecretPage";
+import {store} from "../store";
 
 const path = {
   main: '/',
@@ -34,24 +36,26 @@ function Application() {
   }
 
   return (
-    <div className={classNames('root', theme)}>
-      <Router>
-        <Header themeSwitcher={themeSwitcher} title='My App' links={path}/>
-        <main className={'template'}>
-          <Switch>
-            <Route path={main} exact component={Main}/>
-            <Route path={game} component={Game}/>
-            <Route path={todo} component={ToDo}/>
-            <Route path={stardb} component={StarDB}/>
-            <Route path={blog} component={Blog}/>
-            <Route path={routes} component={Routes}/>
-            <Route path={login}><Login onLogin={onLogin} isLogin={isLogin}/></Route>
-            <Route path={secret}><SecretPage isLogin={isLogin}/></Route>
-            <Route render={()=> <h1>404</h1>}/>
-          </Switch>
-        </main>
-      </Router>
-    </div>
+    <Provider store={store}>
+      <div className={classNames('root', theme)}>
+        <Router>
+          <Header themeSwitcher={themeSwitcher} title='My App' links={path}/>
+          <main className={'template'}>
+            <Switch>
+              <Route path={main} exact component={Main}/>
+              <Route path={game} component={Game}/>
+              <Route path={todo} component={ToDo}/>
+              <Route path={stardb} component={StarDB}/>
+              <Route path={blog} component={Blog}/>
+              <Route path={routes} component={Routes}/>
+              <Route path={login}><Login onLogin={onLogin} isLogin={isLogin}/></Route>
+              <Route path={secret}><SecretPage isLogin={isLogin}/></Route>
+              <Route render={() => <h1>404</h1>}/>
+            </Switch>
+          </main>
+        </Router>
+      </div>
+    </Provider>
   )
 }
 
